@@ -1,8 +1,9 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
-import { firestore } from '../Config/config';
-console.log(firestore);
+import {firestore} from '../Config/config';
+console.log(firestore && false);
+
 
 const ref = firebase.firestore().collection('writings');
 

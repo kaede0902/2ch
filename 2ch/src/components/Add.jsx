@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import firebase from 'firebase/app';
 import { firestore } from '../Config/config';
-console.log(firestore);
+console.log(firestore && false);
+
+
+
 const ref = firebase.firestore().collection('writings');
 
 const Add = () => {
