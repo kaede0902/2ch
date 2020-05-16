@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col,} from 'react-bootstrap';
 import firebase from 'firebase/app';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
 import {firestore} from '../Config/config';
@@ -19,11 +20,20 @@ const Show = () => {
   console.log(values);
   
   return (
-    <ul>
-      {values.map(value => (
-        <li key = {value.id}>{value.content}</li>
-      ))}
-    </ul>
+    <Row>
+      <Col>
+        {values.map(value => (
+            <div key = {value.id}>
+              <div>
+                1:名無しさん:{value.id}:2019.05.17
+              </div>
+              <div>
+                {value.content}
+              </div>
+            </div>
+        ))}
+      </Col>
+    </Row>
   )
 }
 
