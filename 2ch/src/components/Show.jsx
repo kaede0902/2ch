@@ -18,18 +18,21 @@ const Show = () => {
     return <div>{`Error: ${error.message}`}</div>
   }
   console.log(values);
+  let num = 0;
   
   return (
     <Row>
       <Col>
         {values.map(value => (
             <div key = {value.id}>
-              <div>
-                1:名無しさん:{value.id}:2019.05.17
-              </div>
-              <div>
-                {value.content}
-              </div>
+                {++num}:名無しさん:{value.id}:
+                {value.created_at ? 
+                  (value.created_at.toDate().toString()) : 
+                  "NO DATE"
+                }
+            <div>
+              {value.content}
+            </div>
             </div>
         ))}
       </Col>

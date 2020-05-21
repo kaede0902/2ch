@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import {Col, Row,} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import firebase from 'firebase/app';
 import { firestore } from '../Config/config';
 console.log(firestore && false);
@@ -18,7 +21,7 @@ const Add = () => {
     try {
       await ref.add({
         content,
-        created_at: firebase.firestore.FieldValue.serverTimestamp(),
+        created_at: firebase.firestore.FieldValue.serverTimestamp,
       });
     }
     finally {
@@ -27,16 +30,25 @@ const Add = () => {
   }
   return (
     <div>
-      <input 
-        value = {content} 
-        onChange={e => setContent(e.target.value)}
-      />
-      <button
-        onClick={add}
-      >
-        Add
-      </button>
-        {pending && 'Pending...'}
+    <Form>
+      <Row>
+        <Col md = {7}>
+          <Form.Control 
+            placeholder='write here' 
+            value = {content} 
+            onChange={e => setContent(e.target.value)}
+          />
+        </Col>
+        <Col md = {5}>
+          <Button variant="primary" 
+            type="submit" onClick={add}
+            >
+            Submit
+          </Button>
+        </Col>
+      </Row>
+    </Form>
+    {pending && 'Pending...'}
     </div>
   )
 };
